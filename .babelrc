@@ -1,0 +1,3 @@
+{
+  "plugins": ["@babel/env", "@babel/preset-react", "react-refresh/babel"]
+}
