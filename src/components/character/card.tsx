@@ -1,18 +1,47 @@
 import React from 'react';
-import { makeStyles, Theme } from '@mui/material';
+import { Box, Button, Card, CardMedia } from '@mui/material';
 
-export interface CardProps {
-  src: string;
-  alt: string;
+export interface CharacterProps {
+  name: string;
+  skills: {
+    attack: number;
+    stealth: number;
+    diplomacy: number;
+  };
+  keywords: string[];
+  points: number;
+}
+
+export interface CharacterCardProps {
   variant?: 'team' | 'detail';
+  data: CharacterProps;
+  onClick?: (points: number) => void;
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {}
-}))
+export const CharacterCard = (props: CharacterCardProps) => {
+  const { variant = 'team', data, onClick } = props;
 
-export const Card = (props: CardProps) => {
-  const { src, alt, variant = 'team' } = props;
-
-  return <img src={src} alt={alt} className={''} />;
-}
+  return (
+    <Box>
+      <Card
+        variant="outlined"
+        sx={{
+          width: 250,
+          height: 250,
+          textAlign: 'center',
+          cursor: 'pointer',
+          borderColor: 'secondary.dark',
+          backgroundColor: 'transparent'
+        }}
+      >
+        <CardMedia
+          component="img"
+          image={`images/characters/${data.name
+            .toLowerCase()
+            .replace(' ', '-')}.jpeg`}
+          alt={data.name}
+        />
+      </Card>
+    </Box>
+  );
+};

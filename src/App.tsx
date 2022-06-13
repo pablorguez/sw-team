@@ -1,15 +1,17 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/system';
-import { Header } from './components/header';
-import { theme } from './theme';
-import { Team } from './components/team';
+import { Box } from "@mui/material";
+import { ThemeProvider } from "@mui/system";
+import { Header } from "./components/header";
+import { theme } from "./theme";
+import { Teams } from "./components/team";
 
 export const App = () => {
-
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <Team />
+      <Box mt={4} marginX={2}>
+        <Teams />
+      </Box>
     </ThemeProvider>
-  )
-}
+  );
+};

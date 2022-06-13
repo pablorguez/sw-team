@@ -1,16 +1,20 @@
-import { Box, Typography } from '@mui/material';
-import React from 'react';
-import { TeamList } from './list';
+import React, { useState } from "react";
+import { Team } from "./team";
+import { useSessionStorage } from "../../hooks/session-storage";
 
-export const Team = () => {
+import { TeamDataProps } from "./team";
+import { CreateTeamButton } from "./create";
+
+export const Teams = () => {
+  const [teams, setTeams] = useSessionStorage("teams", []);
 
   return (
     <>
-      <Box>
-        <Typography variant="button">Create new team</Typography>
-      </Box>
+      <CreateTeamButton />
 
-      <TeamList />
+      {teams.map((team: TeamDataProps) => (
+        <Team variant="list" data={team} />
+      ))}
     </>
-  )
-}
+  );
+};

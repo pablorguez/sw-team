@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from './card';
+import { CharacterCard } from "./card";
 
 export interface CharacterProps {
   variant: string;

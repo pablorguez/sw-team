@@ -1,0 +1,6 @@
+{
+  "endOfLine": "lf",
+  "parser": "typescript",
+  "trailingComma": "none",
+  "singleQuote": true
+}
